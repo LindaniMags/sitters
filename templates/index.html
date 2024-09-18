@@ -1,15 +1,44 @@
-{%extends "base.html"%} {%block title%}Index Page{%endblock%} {%block content%}
-<h1>Index Page</h1>
-<ul>
-  {%for person in people%}
-  <li>{{person.name}}</li>
-  {%endfor%}
-</ul>
-
-<form action="{{url_for('index')}}" method="POST">
-  <input type="text" name="name" placeholder="Name" required="required" /><br />
-  <input type="number" name="age" placeholder="Age" /><br />
-  <input type="text" name="job" placeholder="Job" /><br />
-  <input type="submit" value="Create" />
-</form>
+{%extends "base.html"%} {%block title%}Index{%endblock%} {%block content%}
+<div class="nav-bar">
+  <h1>SITTERS</h1>
+  <h3><a href="{{url_for('index')}}">Home</a></h3>
+  <div class="nav-links">
+    <a href="{{url_for('signup')}}">Sign Up</a>
+    <a href="{{url_for('login')}}">Login</a>
+    <a href="{{url_for('logout')}}">Logout</a>
+    <a href="{{url_for('profile')}}">Profile</a>
+  </div>
+</div>
+<h1 class="hero">Get The Help You Need</h1>
+<h1 class="hero">When You Need It!</h1>
+{%if current_user.is_authenticated%}
+<h3 class="welcome">Welcome {{current_user.username}}!</h3>
+{%else%}
+<h3 style="margin-left: 20px">Welcome!</h3>
+<br /><br />
+{%endif%}
+<div class="user-section">
+  <div class="user-container">
+    {%for user in users%}
+    <div class="user-block">
+      <div class="profile-img-con">
+        <img src="/img/user.png" alt="profile" class="profile-img" />
+      </div>
+      <div>
+        <p class="test">Name: {{user.username}}</p>
+        <p>Age: {{user.age}}</p>
+        <p>Location: {{user.location}}</p>
+        <p>Services:</p>
+        <div>
+          <p>{{user.services}}</p>
+        </div>
+      </div>
+    </div>
+    {%endfor%}
+  </div>
+</div>
+<div class="footer">
+  <p>ALX Potfolio</p>
+  <p>Lindani Magagula</p>
+</div>
 {%endblock%}

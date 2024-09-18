@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" type="text/css" href="/css/main.css" />
+    <title>profile</title>
+  </head>
+  <body class="profile-body">
+    <div style="width: 100%" class="nav-bar">
+      <h1>SITTERS</h1>
+      <h3><a href="{{url_for('index')}}">Home</a></h3>
+      <div class="nav-links">
+        <a href="{{url_for('logout')}}">Logout</a>
+      </div>
+    </div>
+    <h1>Profile</h1>
+
+    <div class="profile-con">
+      <div class="profile-img-con">
+        <img src="/img/user.png" alt="profile" class="profile-img" />
+      </div>
+      <div class="detail-con">
+        <p>Name and Surname:</p>
+        <h3>{{current_user.username}}</h3>
+      </div>
+      <div class="detail-con">
+        <p>Location:</p>
+        <h3>{{current_user.location}}</h3>
+      </div>
+      <div class="detail-con">
+        <p>Age:</p>
+        <h3>{{current_user.age}}</h3>
+      </div>
+      <div class="detail-con">
+        <p>Services:</p>
+        <h3>{{current_user.services}}</h3>
+      </div>
+      <a href="{{url_for('update')}}">Update Profile</a>
+    </div>
+  </body>
+</html>

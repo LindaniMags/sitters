@@ -1,12 +1,20 @@
+from flask_login import UserMixin
+
 from app import db
 
-class Person(db.Model):
-    __tablename__ = "people"
+class User(db.Model, UserMixin):
+    __tablename__="users"
 
-    pid = db.Column(db.Integer, primary_key = True)
-    name = db.Column(db.Text, nullable = False)
+    uid = db.Column(db.Integer, primary_key = True)
+    username = db.Column(db.String, nullable = False)
     age = db.Column(db.Integer)
-    job = db.Column(db.Text)
+    password = db.Column(db.String, nullable = False)
+    location = db.Column(db.String)
+    services = db.Column(db.String)
 
-    def __repr__(self) -> str:
-        return f"{self.name} - {self.age} years old"
+    def __repr__(self):
+        return f"<User: {self.username}, Role: {self.services}>"
+    
+    def get_id(self):
+        return self.uid
+    

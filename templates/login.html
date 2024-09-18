@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" type="text/css" href="/css/main.css" />
+    <title>profile</title>
+  </head>
+  <body class="profile-body">
+    <div style="width: 100%" class="nav-bar">
+      <h1>SITTERS</h1>
+      <h3><a href="{{url_for('index')}}">Home</a></h3>
+    </div>
+    <h1>Login Page</h1>
+    <form action="{{url_for('login')}}" method="POST">
+      <input
+        type="text"
+        name="username"
+        placeholder="Username"
+        required="required"
+      /><br />
+      <input
+        type="text"
+        name="password"
+        placeholder="Password"
+        required="required"
+      /><br />
+      <input type="submit" value="Login" />
+    </form>
+  </body>
+</html>
