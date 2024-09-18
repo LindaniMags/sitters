@@ -13,8 +13,27 @@ class User(db.Model, UserMixin):
     services = db.Column(db.String)
 
     def __repr__(self):
+        """Return a string representation of the User.
+
+        The string is in the format of:
+        <User: username, Role: services>
+
+        Parameters:
+        None
+
+        Returns:
+        str
+        """
         return f"<User: {self.username}, Role: {self.services}>"
     
     def get_id(self):
+        """Return the user's id.
+
+        Parameters:
+        None
+
+        Returns:
+        int
+        """
         return self.uid
     
